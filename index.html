@@ -7,13 +7,33 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="left">
-    <h1>Les planches de ma prochaine BD<br><span>Work in Progress</span></h1>
+<div class="decor">
+  <!-- Objets interactifs -->
+  <div class="objet" id="ordi" title="Ouvrir les planches"></div>
+  <div class="objet" id="plante" title="Voir les croquis"></div>
+  <div class="objet" id="carnet" title="Journal de production"></div>
+</div>
+
+<!-- Fenêtres modales -->
+<div class="modal" id="modal-ordi">
+  <div class="modal-content">
+    <span class="close" data-target="modal-ordi">&times;</span>
+    <h2>Les planches de la BD</h2>
     <div id="planches" class="planches"></div>
   </div>
+</div>
 
-  <div class="right">
+<div class="modal" id="modal-plante">
+  <div class="modal-content">
+    <span class="close" data-target="modal-plante">&times;</span>
+    <h2>Croquis & Recherches</h2>
+    <p>Ici tu peux afficher quelques images ou notes de conception.</p>
+  </div>
+</div>
+
+<div class="modal" id="modal-carnet">
+  <div class="modal-content">
+    <span class="close" data-target="modal-carnet">&times;</span>
     <h2>Journal de production</h2>
     <div id="journal"></div>
   </div>
