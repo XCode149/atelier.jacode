@@ -1,26 +1,57 @@
 body {
   margin: 0;
+  overflow: hidden;
   font-family: "Poppins", sans-serif;
-  background-color: #f5d8b6;
 }
 
-.container {
-  display: flex;
-}
-
-.left {
-  flex: 3;
-  padding: 2rem;
-  background-color: #fff4e6;
-}
-
-.right {
-  flex: 1;
-  background-color: #e56b6f;
-  color: white;
-  padding: 2rem;
-  overflow-y: auto;
+.decor {
+  position: relative;
+  width: 100vw;
   height: 100vh;
+  background-image: url('decor.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Objets interactifs */
+.objet {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0; /* Mets 0.2 pendant les tests pour voir où ils sont */
+}
+
+/* Exemple de positions */
+#ordi { top: 60%; left: 40%; width: 100px; height: 70px; }
+#plante { top: 30%; left: 25%; width: 80px; height: 100px; }
+#carnet { top: 70%; left: 70%; width: 90px; height: 60px; }
+
+/* Fenêtres modales */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff4e6;
+  padding: 20px;
+  border-radius: 12px;
+  width: 70%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: #e56b6f;
 }
 
 .planches {
@@ -33,17 +64,4 @@ body {
   width: 100%;
   border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.journal-entry {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.journal-entry img {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  margin-right: 10px;
 }
