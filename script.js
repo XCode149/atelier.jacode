@@ -1,15 +1,22 @@
-// Charger les planches automatiquement depuis le dossier
+// Ouvrir et fermer les modales
+document.querySelectorAll('.objet').forEach(obj => {
+  obj.addEventListener('click', () => {
+    const id = 'modal-' + obj.id;
+    document.getElementById(id).style.display = 'flex';
+  });
+});
+
+document.querySelectorAll('.close').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById(btn.dataset.target).style.display = 'none';
+  });
+});
+
+// Charger les planches
 const dossierPlanches = 'planches/';
 const conteneurPlanches = document.getElementById('planches');
+const images = ['planche1.jpg', 'planche2.jpg', 'planche3.jpg'];
 
-// Liste manuelle (GitHub ne permet pas de lister automatiquement un dossier)
-const images = [
-  'planche1.jpg',
-  'planche2.jpg',
-  'planche3.jpg'
-];
-
-// Affiche les images
 images.forEach(img => {
   const div = document.createElement('div');
   div.className = 'vignette';
@@ -21,7 +28,7 @@ images.forEach(img => {
 
 // Charger le journal
 fetch('journal.json')
-  .then(response => response.json())
+  .then(res => res.json())
   .then(entries => {
     const journalDiv = document.getElementById('journal');
     entries.forEach(entry => {
